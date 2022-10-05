@@ -1,0 +1,10 @@
+{
+  "default": {
+    "parallel": 2,
+    "format": ["html:dist/packages/features/cucumber-report.html"],
+    "require": ["dist/packages/features/src/steps/**/*.js"],
+    "paths": ["packages/features/**/*.feature"],
+    "publish": false,
+    "publishQuiet": true
+  }
+}

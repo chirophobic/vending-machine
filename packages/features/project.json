@@ -23,12 +23,12 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/packages/features"],
+      "executor": "nx:run-commands",
+      "outputs": ["dist/packages/features/cucumber-report.html"],
       "options": {
-        "jestConfig": "packages/features/jest.config.ts",
-        "passWithNoTests": true
-      }
+        "command": "NODE_OPTIONS=\"--require ./tools/import-overrides.js --require source-map-support/register\" yarn cucumber-js --config packages/features/cucumber.config.json"
+      },
+      "dependsOn": ["build"]
     }
   },
   "tags": []

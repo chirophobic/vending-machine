@@ -1,1 +1,3 @@
-export * from './lib/domain';
+export function foobar(...args: string[]): string {
+    return args.join('');
+}
