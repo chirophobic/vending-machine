@@ -1,4 +1,6 @@
 {
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@tsconfig/node16-strictest/tsconfig.json",
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",

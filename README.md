@@ -1,94 +1,81 @@
+Vending Machine Kata
+====================
 
+In this exercise you will build the brains of a vending machine.  It will accept money, make change, maintain
+inventory, and dispense products.  All the things that you might expect a vending machine to accomplish.
 
-# VendingMachine
+The point of this kata to to provide a larger than trivial exercise that can be used to practice TDD.  A significant
+portion of the effort will be in determining what tests should be written and, more importantly, written next.
 
-This project was generated using [Nx](https://nx.dev).
+Features
+========
 
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+Accept Coins
+------------
 
-🔎 **Smart, Fast and Extensible Build System**
+_As a vendor_
+_I want a vending machine that accepts coins_
+_So that I can collect money from the customer_
 
-## Adding capabilities to your workspace
+The vending machine will accept valid coins (nickels, dimes, and quarters) and reject invalid ones (pennies).  When a
+valid coin is inserted the amount of the coin will be added to the current amount and the display will be updated.
+When there are no coins inserted, the machine displays INSERT COIN.  Rejected coins are placed in the coin return.
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+NOTE: The temptation here will be to create Coin objects that know their value.  However, this is not how a real
+vending machine works.  Instead, it identifies coins by their weight and size and then assigns a value to what
+was inserted.  You will need to do something similar.  This can be simulated using strings, constants, enums,
+symbols, or something of that nature.
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+Select Product
+--------------
 
-Below are our core plugins:
+_As a vendor_
+_I want customers to select products_
+_So that I can give them an incentive to put money in the machine_
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+There are three products: cola for $1.00, chips for $0.50, and candy for $0.65.  When the respective button is pressed
+and enough money has been inserted, the product is dispensed and the machine displays THANK YOU.  If the display is
+checked again, it will display INSERT COIN and the current amount will be set to $0.00.  If there is not enough money
+inserted then the machine displays PRICE and the price of the item and subsequent checks of the display will display
+either INSERT COIN or the current amount as appropriate.
 
-There are also many [community plugins](https://nx.dev/community) you could add.
+Make Change
+-----------
 
-## Generate an application
+_As a vendor_
+_I want customers to receive correct change_
+_So that they will use the vending machine again_
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+When a product is selected that costs less than the amount of money in the machine, then the remaining amount is placed
+in the coin return.
 
-> You can use any of the plugins above to generate applications as well.
+Return Coins
+------------
 
-When using Nx, you can create multiple applications and libraries in the same workspace.
+_As a customer_
+_I want to have my money returned_
+_So that I can change my mind about buying stuff from the vending machine_
 
-## Generate a library
+When the return coins button is pressed, the money the customer has placed in the machine is returned and the display shows
+INSERT COIN.
 
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
+Sold Out
+--------
 
-> You can also use any of the plugins above to generate libraries as well.
+_As a customer_
+_I want to be told when the item I have selected is not available_
+_So that I can select another item_
 
-Libraries are shareable across libraries and applications. They can be imported from `@vending-machine/mylib`.
+When the item selected by the customer is out of stock, the machine displays SOLD OUT.  If the display is checked again,
+it will display the amount of money remaining in the machine or INSERT COIN if there is no money in the machine.
 
-## Development server
+Exact Change Only
+-----------------
 
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+_As a customer_
+_I want to be told when exact change is required_
+_So that I can determine if I can buy something with the money I have before inserting it_
 
-## Code scaffolding
+When the machine is not able to make change with the money in the machine for any of the items that it sells, it will
+display EXACT CHANGE ONLY instead of INSERT COIN.
 
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `nx e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
-
-
-
-## ☁ Nx Cloud
-
-### Distributed Computation Caching & Distributed Task Execution
-
-<p style="text-align: center;"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
