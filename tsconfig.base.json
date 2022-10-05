@@ -16,7 +16,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@vending-machine/application": ["packages/application/src/index.ts"],
+      "@vending-machine/domain": ["packages/domain/src/index.ts"],
+      "@vending-machine/features": ["packages/features/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
