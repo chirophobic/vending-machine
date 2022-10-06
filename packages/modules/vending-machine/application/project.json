@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "name": "modules-vending-machine-application",
+  "sourceRoot": "packages/modules/vending-machine/application/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/modules/vending-machine/application",
+        "tsConfig": "packages/modules/vending-machine/application/tsconfig.lib.json",
+        "packageJson": "packages/modules/vending-machine/application/package.json",
+        "main": "packages/modules/vending-machine/application/src/index.ts",
+        "assets": ["packages/modules/vending-machine/application/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/modules/vending-machine/application/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/modules/vending-machine/application"],
+      "options": {
+        "jestConfig": "packages/modules/vending-machine/application/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

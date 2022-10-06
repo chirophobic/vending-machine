@@ -1,0 +1,60 @@
+{
+  "name": "modules-vending-machine-api",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/modules/vending-machine/api/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "target": "node",
+        "compiler": "tsc",
+        "outputPath": "dist/packages/modules/vending-machine/api",
+        "main": "packages/modules/vending-machine/api/src/main.ts",
+        "tsConfig": "packages/modules/vending-machine/api/tsconfig.app.json",
+        "assets": ["packages/modules/vending-machine/api/src/assets"]
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "packages/modules/vending-machine/api/src/environments/environment.ts",
+              "with": "packages/modules/vending-machine/api/src/environments/environment.prod.ts"
+            }
+          ]
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "modules-vending-machine-api:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "modules-vending-machine-api:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/modules/vending-machine/api/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/modules/vending-machine/api"],
+      "options": {
+        "jestConfig": "packages/modules/vending-machine/api/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

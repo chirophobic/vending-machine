@@ -39,5 +39,5 @@
     "appsDir": "packages",
     "libsDir": "packages"
   },
-  "defaultProject": "api"
+  "defaultProject": "modules-vending-machine-api"
 }

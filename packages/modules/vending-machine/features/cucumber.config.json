@@ -1,0 +1,10 @@
+{
+  "default": {
+    "parallel": 2,
+    "format": ["html:dist/packages/modules/vending-machine/features/cucumber-report.html"],
+    "require": ["dist/packages/modules/vending-machine/features/src/steps/**/*.js"],
+    "paths": ["packages/modules/vending-machine/features/**/*.feature"],
+    "publish": false,
+    "publishQuiet": true
+  }
+}

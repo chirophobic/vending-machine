@@ -17,11 +17,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@vending-machine/application": ["packages/application/src/index.ts"],
-      "@vending-machine/domain": ["packages/domain/src/index.ts"],
-      "@vending-machine/features": ["packages/features/src/index.ts"],
       "@vending-machine/integration-events": ["packages/integration-events/src/index.ts"],
-      "@vending-machine/interfaces": ["packages/interfaces/src/index.ts"]
+      "@vending-machine/modules/vending-machine/application": [
+        "packages/modules/vending-machine/application/src/index.ts"
+      ],
+      "@vending-machine/modules/vending-machine/domain": ["packages/modules/vending-machine/domain/src/index.ts"],
+      "@vending-machine/modules/vending-machine/features": ["packages/modules/vending-machine/features/src/index.ts"],
+      "@vending-machine/modules/vending-machine/interfaces": [
+        "packages/modules/vending-machine/interfaces/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

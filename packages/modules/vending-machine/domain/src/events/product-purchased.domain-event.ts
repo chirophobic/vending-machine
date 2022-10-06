@@ -1,4 +1,4 @@
-export class ProductPurchasedIntegrationEvent {
+export class ProductPurchasedDomainEvent {
     readonly productId!: number;
     readonly date!: Date;
     readonly price!: number;

@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn nx workspace-lint
+yarn nx format:write
+yarn nx affected --target=build
+yarn nx affected --target=test
+yarn nx affected --target=lint

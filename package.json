@@ -9,7 +9,8 @@
     "test:all": "yarn nx run-many --target=test --all",
     "lint": "yarn nx lint",
     "lint:all": "yarn nx run-many --target=lint --all",
-    "g": "yarn nx g"
+    "g": "yarn nx g",
+    "postinstall": "husky install"
   },
   "private": true,
   "devDependencies": {
@@ -34,6 +35,7 @@
     "eslint": "~8.15.0",
     "eslint-config-prettier": "8.1.0",
     "expect": "29.1.2",
+    "husky": "^8.0.0",
     "jest": "28.1.1",
     "jest-environment-jsdom": "28.1.1",
     "nx": "14.8.3",
