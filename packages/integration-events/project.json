@@ -1,0 +1,35 @@
+{
+  "name": "integration-events",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/integration-events/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/packages/integration-events",
+        "tsConfig": "packages/integration-events/tsconfig.lib.json",
+        "packageJson": "packages/integration-events/package.json",
+        "main": "packages/integration-events/src/index.ts",
+        "assets": ["packages/integration-events/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["packages/integration-events/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/packages/integration-events"],
+      "options": {
+        "jestConfig": "packages/integration-events/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

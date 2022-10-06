@@ -19,7 +19,9 @@
     "paths": {
       "@vending-machine/application": ["packages/application/src/index.ts"],
       "@vending-machine/domain": ["packages/domain/src/index.ts"],
-      "@vending-machine/features": ["packages/features/src/index.ts"]
+      "@vending-machine/features": ["packages/features/src/index.ts"],
+      "@vending-machine/integration-events": ["packages/integration-events/src/index.ts"],
+      "@vending-machine/interfaces": ["packages/interfaces/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
