@@ -1,4 +1,3 @@
-
 export interface ProductProperties {
     readonly code: string;
     readonly price: number;
