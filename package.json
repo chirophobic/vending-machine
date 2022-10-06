@@ -28,6 +28,7 @@
     "@nrwl/node": "^14.8.3",
     "@nrwl/workspace": "14.8.3",
     "@tsconfig/node16-strictest": "1.0.4",
+    "@types/common-tags": "1.8.1",
     "@types/jest": "28.1.1",
     "@types/node": "16.11.7",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
@@ -52,6 +53,7 @@
     "@nestjs/cqrs": "9.0.1",
     "@nestjs/platform-express": "9.1.4",
     "@nestjs/swagger": "6.1.2",
+    "common-tags": "1.8.2",
     "reflect-metadata": "0.1.13",
     "rxjs": "7.5.7",
     "tslib": "2.4.0"

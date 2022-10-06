@@ -1,18 +1,19 @@
-import { Inject, Injectable } from '@nestjs/common';
 import type { VendingMachine, VendingMachineProperties } from './vending-machine';
-import { EventPublisher } from '@nestjs/cqrs';
 import { VendingMachineImplementation } from './vending-machine';
-import { IVendingMachineRepository } from './repository';
+import type { EventPublisher } from '@nestjs/cqrs';
 
-@Injectable()
-export class VendingMachineFactory {
-    constructor(
-        private readonly publisher: EventPublisher,
-        @Inject(IVendingMachineRepository) private readonly repository: IVendingMachineRepository,
-    ) {}
+export const IVendingMachineFactory = Symbol('IVendingMachineFactory');
 
-    async create(properties: Omit<VendingMachineProperties, 'id'>): Promise<VendingMachine> {
-        return this.hydrate({ ...properties, id: await this.repository.getNextId() });
+export interface IVendingMachineFactory {
+    create(properties: Omit<VendingMachineProperties, 'id'>): Promise<VendingMachine>;
+    hydrate(properties: VendingMachineProperties): VendingMachine;
+}
+
+export class VendingMachineFactoryImplementation implements IVendingMachineFactory {
+    constructor(private readonly publisher: Pick<EventPublisher, 'mergeObjectContext'>) {}
+
+    async create(properties: VendingMachineProperties): Promise<VendingMachine> {
+        return this.hydrate(properties);
     }
 
     hydrate(properties: VendingMachineProperties): VendingMachine {

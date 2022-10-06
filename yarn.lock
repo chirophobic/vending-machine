@@ -3188,6 +3188,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/common-tags@npm:1.8.1":
+  version: 1.8.1
+  resolution: "@types/common-tags@npm:1.8.1"
+  checksum: bec6f68c8c434834380abd1dc057aa6ba26661bb0c65c700b65049e9b104d7be96a987d93dbe8726be68554a23a52514a6967d8903fdb51fb8c78cf909d1e4c1
+  languageName: node
+  linkType: hard
+
 "@types/connect-history-api-fallback@npm:^1.3.5":
   version: 1.3.5
   resolution: "@types/connect-history-api-fallback@npm:1.3.5"
@@ -5038,6 +5045,13 @@ __metadata:
   version: 3.0.0
   resolution: "common-path-prefix@npm:3.0.0"
   checksum: fdb3c4f54e51e70d417ccd950c07f757582de800c0678ca388aedefefc84982039f346f9fd9a1252d08d2da9e9ef4019f580a1d1d3a10da031e4bb3c924c5818
+  languageName: node
+  linkType: hard
+
+"common-tags@npm:1.8.2":
+  version: 1.8.2
+  resolution: "common-tags@npm:1.8.2"
+  checksum: 767a6255a84bbc47df49a60ab583053bb29a7d9687066a18500a516188a062c4e4cd52de341f22de0b07062e699b1b8fe3cfa1cb55b241cb9301aeb4f45b4dff
   languageName: node
   linkType: hard
 
@@ -12378,10 +12392,12 @@ __metadata:
     "@nrwl/node": ^14.8.3
     "@nrwl/workspace": 14.8.3
     "@tsconfig/node16-strictest": 1.0.4
+    "@types/common-tags": 1.8.1
     "@types/jest": 28.1.1
     "@types/node": 16.11.7
     "@typescript-eslint/eslint-plugin": ^5.36.1
     "@typescript-eslint/parser": ^5.36.1
+    common-tags: 1.8.2
     eslint: ~8.15.0
     eslint-config-prettier: 8.1.0
     expect: 29.1.2

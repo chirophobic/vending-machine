@@ -1,9 +1,9 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import {
     type IVendingMachineRepository,
     type VendingMachine,
     VendingMachineProperties,
-    VendingMachineFactory,
+    IVendingMachineFactory,
 } from '@vending-machine/modules/vending-machine/domain';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class VendingMachineRepository implements IVendingMachineRepository {
     private store = new Map<number, string>();
     private nextId = 0;
 
-    constructor(private readonly factory: VendingMachineFactory) {}
+    constructor(@Inject(IVendingMachineFactory) private readonly factory: IVendingMachineFactory) {}
 
     findById(id: number): Promise<VendingMachine | null> {
         const raw = this.store.get(id);

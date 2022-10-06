@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-    displayName: 'modules-vending-machine-interfaces',
+    displayName: 'modules-vending-machine-infrastructure',
     preset: '../../../../jest.preset.js',
     globals: {
         'ts-jest': {
@@ -12,5 +12,5 @@ export default {
         '^.+\\.[tj]s$': 'ts-jest',
     },
     moduleFileExtensions: ['ts', 'js', 'html'],
-    coverageDirectory: '../../../../coverage/packages/modules/vending-machine/interfaces',
+    coverageDirectory: '../../../../coverage/packages/modules/vending-machine/infrastructure',
 };

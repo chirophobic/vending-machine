@@ -23,8 +23,8 @@
       ],
       "@vending-machine/modules/vending-machine/domain": ["packages/modules/vending-machine/domain/src/index.ts"],
       "@vending-machine/modules/vending-machine/features": ["packages/modules/vending-machine/features/src/index.ts"],
-      "@vending-machine/modules/vending-machine/interfaces": [
-        "packages/modules/vending-machine/interfaces/src/index.ts"
+      "@vending-machine/modules/vending-machine/infrastructure": [
+        "packages/modules/vending-machine/infrastructure/src/index.ts"
       ]
     }
   },
