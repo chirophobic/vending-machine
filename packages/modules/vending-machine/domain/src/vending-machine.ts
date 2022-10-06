@@ -30,7 +30,7 @@ export class VendingMachineImplementation extends AggregateRoot implements Vendi
 
     insertCoin(coin: string): void {
         const specification = new ValidCoinSpecification();
-        this.publish(new CoinInsertedDomainEvent());
+        this.publish(new CoinInsertedDomainEvent(this, coin));
 
         if (specification.validateCoin(coin)) {
             this.acceptCoin(coin);
@@ -44,11 +44,11 @@ export class VendingMachineImplementation extends AggregateRoot implements Vendi
     }
 
     private acceptCoin(coin: ValidCoin): void {
-        this.publish(new ValidCoinReceivedDomainEvent());
+        this.publish(new ValidCoinReceivedDomainEvent(this, coin));
         this.insertedAmount += COIN_VALUES[coin];
     }
 
-    private rejectCoin(_coin: string): void {
-        this.publish(new InvalidCoinReceivedDomainEvent());
+    private rejectCoin(coin: string): void {
+        this.publish(new InvalidCoinReceivedDomainEvent(this, coin));
     }
 }
